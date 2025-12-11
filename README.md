@@ -1,3 +1,3 @@
-# ProjectOne
+# SolvItAI
 
-The Very First Commit
+Solve smarter, not harder
