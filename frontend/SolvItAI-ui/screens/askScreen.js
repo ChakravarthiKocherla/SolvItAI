@@ -13,6 +13,7 @@ export default function AskScreen() {
     try {
       const result = await askQuestion(question);
       setAnswer(result.answer); // Adjust based on your backend response
+      setQuestion("");
     } catch (error) {
       setAnswer("Error fetching answer");
     }
