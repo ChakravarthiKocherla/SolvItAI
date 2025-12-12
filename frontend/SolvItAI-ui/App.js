@@ -1,12 +1,12 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import HomeScreen from "./screens/homeScreen";
-import LoginScreen from "./screens/loginScreen";
-import RegisterScreen from "./screens/registerScreen";
-import AskScreen from "./screens/askScreen";
-import HistoryScreen from "./screens/historyScreen";
-import PastQuestionScreen from "./screens/pastQuestionScreen";
+import HomeScreen from "./screens/HomeScreen";
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import AskScreen from "./screens/AskScreen";
+import HistoryScreen from "./screens/HistoryScreen";
+import PastQuestionScreen from "./screens/PastQuestionScreen";
 
 const Stack = createNativeStackNavigator();
 
