@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+import { View, Text, TextInput, Button, StyleSheet, ScrollView } from "react-native";
 
 import { askQuestion } from "../apis/axiosConfig";
 
@@ -12,7 +12,7 @@ export default function AskScreen() {
 
     try {
       const result = await askQuestion(question);
-      setAnswer(result.answer); // Adjust based on your backend response
+      setAnswer(result.answer); // Backend response
       setQuestion("");
     } catch (error) {
       setAnswer("Error fetching answer");
@@ -32,7 +32,11 @@ export default function AskScreen() {
 
       <Button title="Ask" onPress={handleAsk} />
 
-      {answer ? <Text style={styles.answer}>Response: {answer}</Text> : null}
+      {answer ? (
+        <ScrollView style={styles.answerContainer}>
+          <Text style={styles.answer}>{answer}</Text>
+        </ScrollView>
+      ) : null}
     </View>
   );
 }
@@ -41,6 +45,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
     width: "100%",
+    flex: 1,
   },
   header: {
     fontSize: 22,
@@ -53,9 +58,16 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 12,
   },
-  answer: {
+  answerContainer: {
     marginTop: 20,
-    fontSize: 18,
-    fontWeight: "600",
+    maxHeight: 300, // Scrollable area height
+    borderWidth: 1,
+    borderColor: "#ddd",
+    padding: 10,
+    borderRadius: 6,
+  },
+  answer: {
+    fontSize: 16,
+    lineHeight: 24,
   },
 });
